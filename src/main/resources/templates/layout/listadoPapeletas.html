@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+    <head>
+        <title>Listado Papeletas</title>
+        <meta charset="UTF-8"/>
+       
+    </head>
+    <body>
+        
+        <section th:fragment="listadoPapeletas" id="papeletas"  >
+            
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-10">
+                        
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                
+                                <h4> Consultar Papeleta de Habilidad</h4>
+                            
+                            </div>
+                            
+                             <div th:if="${papeletas !=null and !papeletas.empty}">
+                                 
+                                 
+                                 <table class="table table-striped">
+                                     
+                                     <thead class="thead-dark">
+                                         
+                                         
+                                         
+                                         <tr>
+                                             
+                                             <th>#</th>
+                                             <th >Nro. Solicitud</th>
+                                             <th >Nro. Papeleta</th>
+                                             <th >Aplicación</th>
+                                             <th>Empresa/Nro. Juzgado</th>
+                                             <th >Fecha Emisión</th>
+                                             <th >Estado Papeleta</th>
+                                         </tr>
+                                         
+                                         
+                                         
+                                     </thead>
+                                     
+                                      <tbody>
+                                         <tr th:each="papeletas , contador: ${papeletas}">
+                                             
+                                             <td>  [[${contador.count}]] </td>
+                                             <td>  [[${papeletas.nroSolicitud}]] </td>
+                                             <td>  [[${papeletas.nroPapeleta}]] </td>
+                                             <td>  [[${papeletas.aplicacion}]] </td>
+                                             <td>  [[${papeletas.empresaJuzgado}]] </td>
+                                             <td>  [[${papeletas.fechaEmision}]] </td>
+                                             <td>  [[${papeletas.estadopha}]] </td>
+                                             
+                                         </tr>                               
+                                     </tbody>
+                                     
+                                     
+                                     
+                                     
+                                     
+                                 </table>
+                                 
+                                 
+                                    
+                                </div>
+                            
+                            <div class="text-center p-2" th:if="${papeletas == null or papeletas.empty}">
+                                
+                                <span>No Hay Solicitudes Registradas</span>
+                                
+                            </div>
+                            
+                            
+                            
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+                
+            </div>
+            
+            
+            
+            
+        </section>
+        
+        
+        
+        
+        
+    </body>
+</html>

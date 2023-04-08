@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+    <head>
+        <title>Listado Abogado</title>
+        <meta charset="UTF-8"/>
+       
+    </head>
+    <body>
+        
+        <section th:fragment="listadoAbogado" id="abogados"  >
+            
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-10">
+                        
+                        <div class="card">
+                            
+                            <div class="card-header">
+                                
+                                <h4> Mantener Abogado</h4>
+                            
+                            </div>
+                            
+                             <div th:if="${abogados !=null and !abogados.empty}">
+                                 
+                                 
+                                 <table class="table table-striped">
+                                     
+                                     <thead class="thead-dark">
+                                         
+                                         
+                                         
+                                         <tr>
+                                             
+                                             <th>#</th>
+                                             <th >Nro. Cal</th>
+                                             <th >Nombres</th>
+                                             <th >Ape. Paterno</th>
+                                             <th >Ape. Materno</th>
+                                             <th >DNI</th>
+                                             <th >Estado</th>
+                                             <th></th>
+                                             <th></th>
+                                         </tr>
+                                         
+                                         
+                                         
+                                     </thead>
+                                     
+                                      <tbody>
+                                         <tr th:each="abogado , contador: ${abogados}">
+                                             
+                                             <td>  [[${contador.count}]] </td>
+                                             <td>  [[${abogado.nroCal}]] </td>
+                                             <td>  [[${abogado.nombres}]] </td>
+                                             <td>  [[${abogado.apellidoPaterno}]] </td>
+                                             <td>  [[${abogado.apellidoMaterno}]] </td>
+                                             <td>  [[${abogado.dni}]] </td>
+                                             <td>  [[${abogado.estado}]] </td>
+                                             <td> 
+                                                 <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editarAbogado/} + ${abogado.nroCal}"
+                                                    class="btn btn-secondary">
+                                                        
+                                                     <i class="fas fa-angle-double-right"></i> Editar
+                                                     
+                                                 </a>
+                                             </td>
+                                             <td>
+                                                 
+                                                    <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminarAbogado/} + ${abogado.nroCal}"
+                                                    class="btn btn-dark">
+                                                        
+                                                     <i class="fas fa-angle-double-right"></i> Eliminar
+                                                     
+                                                 </a>
+                                                 
+                                                 
+                                                 
+                                                 
+                                                 
+                                             </td> 
+                                             
+                                         </tr>                               
+                                     </tbody>
+                                     
+                                     
+                                     
+                                     
+                                     
+                                 </table>
+                                 
+                                 
+                                    
+                                </div>
+                            
+                            <div class="text-center p-2" th:if="${abogados == null or abogados.empty}">
+                                
+                                <span>Lista Vacia</span>
+                                
+                            </div>
+                            
+                            
+                            
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                    
+                    
+                </div>
+                
+                
+            </div>
+            
+            
+            
+            
+        </section>
+        
+        
+        
+        
+        
+    </body>
+</html>

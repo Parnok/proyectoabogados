@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+  
+    <head th:replace="layout/plantilla :: head">
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <header   th:replace="layout/plantilla :: header" ></header>
+        
+        <div class="container">
+            <div class="text-center text-dark">
+        <h2>SOLICITUD DE PAPELETA DE HABILIDAD </h2>
+             </div>
+        </div>
+        <br/>
+        <form th:action="@{/registrarSolicitud}" method="post"  th:object="${solicitudpapeleta}">       
+         <div class="container">
+        <div class="form-row"> 
+            <div class="form-group col-md-6">
+                <label for="nroCal">Solicitante:</label>
+                <input value="CAL01" type="text" class="form-control" id="nroCal" name="nroCal" readonly>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="aplicacion">Aplicacion:</label>
+                <select name="aplicacion" class="custom-select" id="inputGroupSelect01">
+                        <option selected>Seleccione</option>
+                        <option value="Litigio">Litigio</option>
+                        <option value="Laboral">Laboral</option>  
+                      </select>
+            </div>
+            
+             <div class="form-group col-md-6">
+                <label for="empresaJuzgado">Empresa/Nro. Juzgado:</label>
+                <input type="text" class="form-control" id="empresaJuzgado" name="empresaJuzgado">
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label for="descripcion">Descripcion:</label>
+                <input  type="text" class="form-control" id="descripcion" name="descripcion">
+            </div>
+            
+        </div >   
+        <div class="container">
+            <div class="col-md-12 text-center">
+        <button type="submit" name="guardar" class="btn btn-success">Registrar</button> <span> <a class="btn btn-danger" th:href="@{/}">Cancelar</a></span>
+        </div> 
+          </div>  
+        </div>   
+        
+        </form>
+        
+        
+        
+        <footer   th:replace="layout/plantilla :: footer" ></footer>
+    </body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
+    <head th:fragment="head">
+        <title>Plantilla</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+<!--    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>-->
+        <script th:src="@{/webjars/jquery/3.4.0/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        
+        
+    </head>
+    <body>
+        <header th:fragment="header">
+
+        <nav class="navbar navbar-expand-sm navbar-dark p-0" style="background-color:#FFF1E6">
+    
+    
+            <div  class="container" >
+                
+               
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse" >
+                <span  class="navbar-toggler-icon"  ></span>
+                </button>
+                
+            </div>
+            
+       
+            
+    
+            <div class="collapse navbar-collapse" id="navbarCollapse" >
+                
+                
+                
+                <ul class="navbar-nav">
+                    <li  class="nav-item px-2" >
+                        
+                        <a th:href="@{/}" class="nav-link active text-dark"> INICIO </a>
+                        
+                    </li>
+                    
+                </ul>
+                
+                 <ul sec:authorize="hasRole('ROLE_ADMIN')" class="navbar-nav">
+                    <li  class="nav-item dropdown px-2" >
+                        <a  class="nav-link dropdown-toggle text-dark" role="button" data-toggle="dropdown"> MANTENER </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" th:href="@{/MantenerAbogado}">ABOGADO</a>
+                        </div>  
+   
+                    </li>
+                </ul> 
+                
+                <ul sec:authorize="hasRole('ROLE_USER')" class="navbar-nav">
+                    <li  class="nav-item dropdown px-2" >
+                    <a  class="nav-link dropdown-toggle text-dark" role="button" data-toggle="dropdown"> CONSULTAR </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" th:href="@{/consultarPah}">PAPELETA DE HABILIDAD</a>
+                        </div> 
+                    </li>
+                </ul>  
+ 
+                
+                <ul sec:authorize="hasRole('ROLE_USER')" class="navbar-nav">
+                    <li  class="nav-item dropdown px-1" >
+                    <a  class="nav-link dropdown-toggle text-dark" role="button" data-toggle="dropdown"> SOLICITUD </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" th:href="@{/solicitud}">PAPELETA DE HABILIDAD</a>
+                        </div> 
+                    </li>
+                </ul> 
+
+                <ul  sec:authorize="isAuthenticated()" class="navbar-nav" ml-auto>
+                    <li  class="nav-item mr-2" > 
+                        <a  href="#"  class="nav-link text-dark" >
+                            <span class="fa-solid fa-user text-dark"></span><span sec:authentication="name" >USUARIO</span>
+                        </a>
+                    </li>
+                    
+                    <li class="nav-item"  >  
+                        <form method="POST" th:action="@{/logout}">
+                            <a href="#" onclick="this.parentNode.submit()" class="nav-link text-dark" >
+                                <i class="fas fa-user-times text-dark"></i> SALIR
+                            </a>
+                        </form> 
+                    </li>
+                </ul>
+            </div>
+        </nav>
+            
+
+<section id="main-header" class="py-2 text-white mb-5" style="background-color:#A5A58D">
+    <div class="container">
+        <div class="row"> 
+            <div clas="col-md-6">
+                <h1>
+                    <img th:src="logo.png" width="200" height="80" />
+                </h1> 
+            </div> 
+        </div>
+    </div>
+</section>  
+            
+       </header>
+        
+        
+        
+        
+        
+        
+        
+        
+        <footer th:fragment="footer"    class="text-white mt-5 p-5" style="background-color:#A5A58D" > 
+            <div class="container" >          
+                <div class="col">
+                    <p class="lead text-center">         
+                       <span> &copy; 2022 - 2023 ColegioAbogadosLima | Todos los Derechos Reservados</span>
+                    </p>    
+                </div> 
+            </div>
+        </footer>
+        
+        
+       
+        
+    </body>
+</html>

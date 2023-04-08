@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+    
+    
+    
+    <head   th:replace="layout/plantilla :: head"  >
+        
+        <title>Login</title>
+        
+        
+    </head>
+  
+    <body>
+        
+        <header   th:replace="layout/plantilla :: header"   >   </header>
+        
+        <section id="actions" class="py-4 mb-4 bg-light">
+            
+            <div class="container">
+                <div class="row">
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+                
+                
+                
+                
+            </div>
+            
+            
+            
+            
+            
+            
+        </section>
+        
+        
+        
+        <section id="login" >
+            
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-md-6 mx-auto">
+                        <div class="card">
+                            <div class="card-header text-white" style="background-color:#DDBEA9">
+                                
+                                <h4 align="center"> LOGIN</h4>
+                                
+                            </div>
+                            <div class="card-body">
+                                
+                                 <form   method="POST" th:action="@{/login}" >
+                                            
+                                     <div align="center" class="form-group">
+                                        <label for="username" >Username</label>
+                                        <input type="text" name="username" id="username"/>                                 
+                                     </div>
+                                    
+                                     <div align="center" class="form-group">
+                                        <label  for="password" >Password</label>
+                                        <input type="password" name="password" id="password"  />                          
+                                     </div>
+                                     
+                                      <input type="submit" value="Iniciar Sesión"  class="btn btn-primary btn-block mx-auto" />
+                                                                        
+                                </form>
+                                
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        
+                        
+                    </div>
+                
+                
+                
+                </div>
+                
+                
+                
+            </div>
+            
+            
+            
+        </section>
+        
+        
+        <footer th:replace="layout/plantilla :: footer" ></footer>
+        
+        
+        
+        
+        
+        
+       
+        
+    </body>
+</html>
+
