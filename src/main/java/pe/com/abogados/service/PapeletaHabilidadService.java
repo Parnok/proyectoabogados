@@ -10,5 +10,6 @@ public interface PapeletaHabilidadService {
     
     public List<PapeletaHabilidad> consultarPapeletas();
     
+    public PapeletaHabilidad detallePapeletaHabilidad(PapeletaHabilidad papeletaHabilidad);
     
 }

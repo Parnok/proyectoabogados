@@ -42,6 +42,7 @@
                                              <th>Empresa/Nro. Juzgado</th>
                                              <th >Fecha Emisión</th>
                                              <th >Estado Papeleta</th>
+                                             <th>Acciones</th>
                                          </tr>
                                          
                                          
@@ -58,6 +59,14 @@
                                              <td>  [[${papeletas.empresaJuzgado}]] </td>
                                              <td>  [[${papeletas.fechaEmision}]] </td>
                                              <td>  [[${papeletas.estadopha}]] </td>
+                                             <td> 
+                                                 <a sec:authorize="hasRole('ROLE_USER')" th:href="@{/detallePah/} + ${papeletas.nroSolicitud}"
+                                                    class="btn btn-secondary">
+                                                        
+                                                     <i class="fas fa-angle-double-right"></i> Editar
+                                                     
+                                                 </a>
+                                             </td>
                                              
                                          </tr>                               
                                      </tbody>

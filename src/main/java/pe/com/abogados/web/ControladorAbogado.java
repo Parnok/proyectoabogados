@@ -10,14 +10,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import pe.com.abogados.Dao.UsuarioDAO;
 import pe.com.abogados.domain.Abogado;
-import pe.com.abogados.domain.PapeletaHabilidad;
-import pe.com.abogados.domain.SolicitudPapeleta;
 import pe.com.abogados.service.AbogadoService;
-import pe.com.abogados.service.PapeletaHabilidadService;
-import pe.com.abogados.service.SolicitudPapeletaService;
+
 
 
 
@@ -27,17 +22,8 @@ public class ControladorAbogado {
     @Autowired
     private AbogadoService abogadoService;
     
-    /*Solicitud de Abogado*/
-    @Autowired
-    private SolicitudPapeletaService solicitudService;
     
-    /*Consulta de Papeleta*/
-    @Autowired
-    private PapeletaHabilidadService papeletaHabilidadService;
-    
-    
-    
-    
+ 
     
     @GetMapping("/")
     public String inicio()
@@ -100,42 +86,5 @@ public class ControladorAbogado {
         return "redirect:/MantenerAbogado";
         
     }
-    
-    
-    /*SOLICITUD DE ABOGADO*/
-    
-    @GetMapping("/solicitud")
-    public String solicitud()
-    {
-        return "regisSolicitud";
-    }
-    
-    
-    
-    
-    @PostMapping("/registrarSolicitud")
-    public String registrarSolicitud(SolicitudPapeleta solicitudPapeleta)
-    {
-        
-        solicitudService.registrarSolicitud(solicitudPapeleta);
-        return "index";
-    }
-    
-    
-    
-    /*Consulta de Solicitud*/
-    
-    @GetMapping("/consultarPah")
-    public String consultarPapeletasHabilidad(Model model)
-    {
-        
-        
-        var papeletas = papeletaHabilidadService.consultarPapeletas();
-        model.addAttribute("papeletas",papeletas);
-        
-        return "consultarPapeletas";
-    }
-    
-    
     
 }

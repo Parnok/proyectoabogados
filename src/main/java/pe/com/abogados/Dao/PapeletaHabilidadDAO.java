@@ -16,5 +16,9 @@ public interface PapeletaHabilidadDAO extends JpaRepository<PapeletaHabilidad,St
     List<PapeletaHabilidad> consultarPapeletas();
     
     
+    @Procedure("sp_Detalle_Papeleta")
+    PapeletaHabilidad detallePapeleta(String Nro_Solicitud);
+    
+    
     
 }

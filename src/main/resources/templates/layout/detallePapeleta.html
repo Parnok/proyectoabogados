@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org"
+       xmlns="http://www.w3.org/1999/xhtml"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring.security"
+       >
+    <head  th:replace="layout/plantilla :: head">
+        <title>Esto es un HTML</title>
+        <meta charset="UTF-8"/>
+
+
+    </head>
+    <body>
+        <section th:fragment="detallePapeleta">
+            <div id="detallePapeleta" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" >
+                <div class="modal-dialog" >
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title">
+                                Abogado
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form th:action="@{/}" method="post"  th:object="${papeletaHabilidad}" class="was-validated">
+                           <input type="hidden" name="nroCal" th:field="*{nroCal}"> 
+
+                            <div class="modal-body">
+
+            <div class="form-group">
+                <label for="nroSolicitud">Nombres:</label>
+                <input type="text" class="form-control" name="nroSolicitud" th:field="*{nroSolicitud}">
+                <span th:if="${#fields.hasErrors('nroSolicitud')}" th:errors="*{nroSolicitud}">Error Nombres</span>
+            </div>
+            <div class="form-group">
+                <label for="fechaEmision">Apellido Paterno:</label>
+                <input type="text" class="form-control" name="fechaEmision" th:field="*{fechaEmision}">
+                <span th:if="${#fields.hasErrors('fechaEmision')}" th:errors="*{fechaEmision}">Error Ape. Paterno</span>
+            </div>
+            
+             <div class="form-group">
+                <label for="estado">Apellido Materno:</label>
+                <input type="text" class="form-control" name="estado" th:field="*{estado}">
+                <span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}">Error Ape. Materno</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="observaciones">DNI:</label>
+                <input type="text" class="form-control" name="dni" th:field="*{observaciones}">
+                <span th:if="${#fields.hasErrors('observaciones')}" th:errors="*{observaciones}">Error Dni</span>
+            </div>
+            
+            <div class="form-group">
+                <label for="nroPapeleta">Correo:</label>
+                <input type="text" class="form-control" name="nroPapeleta" th:field="*{nroPapeleta}">
+                <span th:if="${#fields.hasErrors('nroPapeleta')}" th:errors="*{nroPapeleta}">Error Correo</span>
+            </div>
+            <div class="form-group">
+                <label for="aplicacion">Apellido Paterno:</label>
+                <input type="text" class="form-control" name="aplicacion" th:field="*{aplicacion}">
+                <span th:if="${#fields.hasErrors('aplicacion')}" th:errors="*{aplicacion}">Error Telefono</span>
+            </div>
+             <div class="form-group">
+                <label for="empresaJuzgado">Estado:</label>
+                <input type="text" class="form-control" name="empresaJuzgado" th:field="*{empresaJuzgado}">
+                <span th:if="${#fields.hasErrors('empresaJuzgado')}" th:errors="*{empresaJuzgado}">Error Estado</span>
+            </div>
+              <div class="form-group">
+                <label for="estadopha">Sexo:</label>
+                <input type="text" class="form-control" name="estadopha" th:field="*{estadopha}">
+                <span th:if="${#fields.hasErrors('estadopha')}" th:errors="*{estadopha}">Error Genero</span>
+            </div>
+                <div class="form-group">
+                <label for="descripcion">Sexo:</label>
+                <input type="text" class="form-control" name="descripcion" th:field="*{descripcion}">
+                <span th:if="${#fields.hasErrors('descripcion')}" th:errors="*{descripcion}">Error Genero</span>
+            </div>
+
+                            </div>
+                            <div class="modal-footer">                 
+                                <input type="submit" class="btn btn-success"  value="Aceptar"/>
+                                <span> <a class="btn btn-danger" th:href="@{/MantenerAbogado}">Cancelar</a></span>
+
+                            </div>
+
+                        </form>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </body>
+
+</html>
+

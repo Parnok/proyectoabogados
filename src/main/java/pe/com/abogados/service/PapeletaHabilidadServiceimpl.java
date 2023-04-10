@@ -15,12 +15,17 @@ public class PapeletaHabilidadServiceimpl implements PapeletaHabilidadService{
     
     
     @Override
-    @Transactional(readOnly = true)
     public List<PapeletaHabilidad> consultarPapeletas() {
         
         return papeletaHabilidadDAO.consultarPapeletas();
         
         
+    }
+
+    @Override
+    @Transactional
+    public PapeletaHabilidad detallePapeletaHabilidad(PapeletaHabilidad papeletaHabilidad){
+            return papeletaHabilidadDAO.detallePapeleta(papeletaHabilidad.getNroSolicitud());
     }
     
     
